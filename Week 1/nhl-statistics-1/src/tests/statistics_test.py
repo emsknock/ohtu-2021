@@ -14,7 +14,21 @@ class PlayerReaderStub:
 
 class TestStatistics(unittest.TestCase):
     def setUp(self):
-        print("Set up goes here")
+        self.statistics = Statistics(
+            PlayerReaderStub()
+        )
 
-    def test_hello_world(self):
-        self.assertEqual("Hello world", "Hello world")
+    def test_initialiser(self):
+        self.assertEqual(len(self.statistics._players), 5)
+
+    def test_player_search_returns_correct_player(self):
+        self.assertEqual(self.statistics.search("Kurri").name, "Kurri")
+
+    def test_player_search_returns_none_when_doesnt_exist(self):
+        self.assertEqual(self.statistics.search("Virtanen"), None)
+
+    def test_players_by_team(self):
+        self.assertEqual(len(self.statistics.team("EDM")), 3)
+
+    def test_top_scorers(self):
+        self.assertEqual(self.statistics.top_scorers(1)[0].name, "Gretzky")
