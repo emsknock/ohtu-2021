@@ -20,6 +20,13 @@ Register With Valid Username And Too Short Password
     Submit Credentials
     Page Should Contain  Password must be at least 8 characters long and contain at least 1 number
 
+Register With Nonmatching Password And Password Confirmation
+    Input text  username  emma
+    Input password  password  emma1234
+    Input Password  password_confirmation  emma5678
+    Submit Credentials
+    Page Should Contain  Password confirmation doesn't match given password
+
 *** Keywords ***
 Set Registration
     [Arguments]  ${username}  ${password}

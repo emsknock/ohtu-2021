@@ -44,5 +44,7 @@ class UserService:
             raise UserInputError("Username must only contain letters a-z and be at least 3 characters long")
         if (not re.match(r"^[a-zA-Z0-9]{8,}$", password)) or (not re.search(r"\d", password)):
             raise UserInputError("Password must be at least 8 characters long and contain at least 1 number")
+        if not password == password_confirmation:
+            raise UserInputError("Password confirmation doesn't match given password")
 
 user_service = UserService()
