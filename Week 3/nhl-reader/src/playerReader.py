@@ -9,4 +9,4 @@ class PlayerReader:
         )
 
     def get_players(self):
-        return this.players
+        return self.players
