@@ -11,9 +11,7 @@ def main():
     players = []
 
     for player_dict in response:
-        player = Player(
-            player_dict['name']
-        )
+        player = Player(player_dict)
 
         players.append(player)
 
