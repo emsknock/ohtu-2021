@@ -15,6 +15,11 @@ Register With Too Short Username And Valid Password
     Submit Credentials
     Page Should Contain  Username must only contain letters a-z and be at least 3 characters long
 
+Register With Valid Username And Too Short Password
+    Set Registration  emma  e
+    Submit Credentials
+    Page Should Contain  Password must be at least 8 characters long and contain at least 1 number
+
 *** Keywords ***
 Set Registration
     [Arguments]  ${username}  ${password}
