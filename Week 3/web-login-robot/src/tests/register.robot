@@ -10,6 +10,11 @@ Register With Valid Username And Password
     Submit Credentials
     Welcome Page Should Be Open
 
+Register With Too Short Username And Valid Password
+    Set Registration  e  emma1234
+    Submit Credentials
+    Page Should Contain  Username must only contain letters a-z and be at least 3 characters long
+
 *** Keywords ***
 Set Registration
     [Arguments]  ${username}  ${password}
