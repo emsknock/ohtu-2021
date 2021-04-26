@@ -7,3 +7,6 @@ class PlayerReader:
         self.players = list(
             map(lambda d : Player(d), response)
         )
+
+    def getPlayers():
+        return this.players
