@@ -8,5 +8,5 @@ class PlayerReader:
             map(lambda d : Player(d), response)
         )
 
-    def getPlayers():
+    def get_players():
         return this.players
