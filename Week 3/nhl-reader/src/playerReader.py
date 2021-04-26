@@ -7,4 +7,3 @@ class PlayerReader:
         self.players = list(
             map(lambda d : Player(d), response)
         )
-        for player in self.players: print(player)
