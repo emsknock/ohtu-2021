@@ -48,3 +48,9 @@ class TestKauppa(unittest.TestCase):
         self.kauppa.lisaa_koriin(1)
         self.kauppa.tilimaksu("pekka", "12345")
         self.pankki_mock.tilisiirto.assert_called_with("pekka", 42, "12345", self.kauppa._kaupan_tili, 10)
+        
+    def test_saatavilla_ja_ei_saatavilla_oleva_tuote(self):
+        self.kauppa.lisaa_koriin(1)
+        self.kauppa.lisaa_koriin(3)
+        self.kauppa.tilimaksu("pekka", "12345")
+        self.pankki_mock.tilisiirto.assert_called_with("pekka", 42, "12345", self.kauppa._kaupan_tili, 5)
