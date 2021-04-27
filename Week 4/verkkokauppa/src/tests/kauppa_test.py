@@ -70,3 +70,8 @@ class TestKauppa(unittest.TestCase):
         self.kauppa.lisaa_koriin(1)
         self.kauppa.tilimaksu("pekka", "12345")
         self.assertEqual(self.viitegeneraattori_mock.uusi.call_count, 2)
+
+    def test_kauppa_palauttaa_tuotteen_joka_poistetaan_korista(self):
+        self.kauppa.lisaa_koriin(1)
+        self.kauppa.poista_korista(1)
+        self.varasto_mock.palauta_varastoon.assert_called_with(Tuote(1, "maito", 5))
