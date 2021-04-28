@@ -27,7 +27,7 @@ class HasAtLeast:
         return player_value >= self._value
 
 class All:
-    def matches(self, player):
+    def matches(self):
         return True
 
 class Not:
