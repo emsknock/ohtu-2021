@@ -44,3 +44,10 @@ class HasFewerThan:
     
     def matches(self, player):
         return not HasAtLeast(self._value, self._attr).matches(player)
+
+class Or:
+    def __init__(self, *matchers):
+        self._matchers = matchers
+
+    def matches(self, player):
+        return any(map(lambda m : m.matches(player), self._matchers))
