@@ -16,6 +16,9 @@ class QueryBuilder:
     def build(self):
         return self._matcher
 
+    def matches(self, player):
+        return self._matcher.matches(player)
+
     def playsIn(self, team):
         self._and(PlaysIn(team))
         return self
