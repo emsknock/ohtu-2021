@@ -13,6 +13,12 @@ class Kayttoliittyma:
     def __init__(self, sovellus, root):
         self._sovellus = sovellus
         self._root = root
+        self._cmds = {
+            Komento.SUMMA: lambda a : self._sovellus.plus(a),
+            Komento.EROTUS: lambda a : self._sovellus.miinus(a),
+            Komento.NOLLAUS: lambda _ : self._sovellus.nollaa(),
+            Komento.KUMOA: lambda _ : pass
+        }
 
     def kaynnista(self):
         self._tulos_var = StringVar()
@@ -62,14 +68,7 @@ class Kayttoliittyma:
         except Exception:
             pass
 
-        if komento == Komento.SUMMA:
-            self._sovellus.plus(arvo)
-        elif komento == Komento.EROTUS:
-            self._sovellus.miinus(arvo)
-        elif komento == Komento.NOLLAUS:
-            self._sovellus.nollaa()
-        elif komento == Komento.KUMOA:
-            pass
+        if komento in self._cmds: self._cmds[komento](arvo)
 
         self._kumoa_painike["state"] = constants.NORMAL
 
