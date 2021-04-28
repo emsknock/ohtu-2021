@@ -6,7 +6,7 @@ from matchers import (
     HasFewerThan
 )
 
-class MatcherBuilder:
+class QueryBuilder:
     def __init__(self):
         self._matcher = All()
 
